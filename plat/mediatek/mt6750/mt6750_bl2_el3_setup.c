@@ -5,6 +5,7 @@
  */
 
 #include <mtk_console.h>
+#include <mtk_timer.h>
 #include <mt6750_def.h>
 
 static console_t console;
@@ -17,6 +18,9 @@ void bl2_el3_plat_arch_setup(void)
 void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 				  u_register_t arg3, u_register_t arg4)
 {
+	/* Initialize GPT */
+	mtk_gpt_ops_init(GPT_BASE);
+
 	/* Initialize the console to provide early debug support */
 	console_mtk_register(UART0_BASE, UART_CLOCK,
 			       UART_BAUDRATE, &console);
