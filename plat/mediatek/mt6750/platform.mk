@@ -10,13 +10,15 @@ MTK_DRIVERS_SOC		:=	${MTK_PLAT_SOC}/drivers
 
 PLAT_INCLUDES		:=	-I${MTK_PLAT_SOC}/include/			\
 				-I${MTK_DRIVERS_SOC}/console			\
-				-I${MTK_DRIVERS_SOC}/timer
+				-I${MTK_DRIVERS_SOC}/timer			\
+				-I${MTK_DRIVERS_SOC}/pll
 
 PLAT_BL_COMMON_SOURCES	+=	drivers/io/io_storage.c				\
 				drivers/delay_timer/delay_timer.c		\
 				${MTK_PLAT_SOC}/aarch64/mt6750_helpers.S	\
 				${MTK_DRIVERS_SOC}/console/mtk_console.S 	\
 				${MTK_DRIVERS_SOC}/timer/mtk_timer.c		\
+				${MTK_DRIVERS_SOC}/pll/mtk_pll.c		\
 				${MTK_PLAT_SOC}/mt6750_io_storage.c		\
 				${MT6750_GIC_SOURCES}
 
